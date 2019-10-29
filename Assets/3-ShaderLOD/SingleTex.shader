@@ -4,6 +4,19 @@ Shader "MyShader/LODTest" {
 	Properties{
 		_Color("Color Tint", Color) = (1, 1, 1, 1)
 	}
+
+		CGINCLUDE
+			uniform fixed4 _Color;
+
+			struct a2v {
+				float4 vertex : POSITION;
+			};
+
+			struct v2f {
+				float4 pos : SV_POSITION;
+			};
+		ENDCG
+
 		SubShader{
 			LOD 300
 			Pass {
@@ -11,19 +24,6 @@ Shader "MyShader/LODTest" {
 
 				#pragma vertex vert
 				#pragma fragment frag
-
-				uniform fixed4 _Color;
-
-				struct a2v {
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-					float4 texcoord : TEXCOORD0;
-				};
-
-				struct v2f {
-					float4 pos : SV_POSITION;
-					fixed3 color : COLOR0;
-				};
 
 				v2f vert(a2v v) {
 					v2f o;
@@ -47,18 +47,6 @@ Shader "MyShader/LODTest" {
 				#pragma vertex vert
 				#pragma fragment frag
 
-				uniform fixed4 _Color;
-
-				struct a2v {
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-					float4 texcoord : TEXCOORD0;
-				};
-
-				struct v2f {
-					float4 pos : SV_POSITION;
-					fixed3 color : COLOR0;
-				};
 
 				v2f vert(a2v v) {
 					v2f o;
@@ -82,18 +70,6 @@ Shader "MyShader/LODTest" {
 				#pragma vertex vert
 				#pragma fragment frag
 
-				uniform fixed4 _Color;
-
-				struct a2v {
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-					float4 texcoord : TEXCOORD0;
-				};
-
-				struct v2f {
-					float4 pos : SV_POSITION;
-					fixed3 color : COLOR0;
-				};
 
 				v2f vert(a2v v) {
 					v2f o;
